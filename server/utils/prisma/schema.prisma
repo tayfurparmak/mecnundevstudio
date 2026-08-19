@@ -1,0 +1,52 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Task {
+  id        Int      @id @default(autoincrement())
+  title     String
+  category  String
+  status    String   @default("TODO")
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model DailyLog {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  todoTask    String
+  isCompleted Boolean  @default(false)
+  learningLog String?
+}
+
+model SkillTracker {
+  id         Int      @id @default(autoincrement())
+  skillName  String   @unique
+  percentage Int      @default(0)
+  updatedAt  DateTime @updatedAt
+}
+
+model Goal {
+  id         Int      @id @default(autoincrement())
+  title      String
+  category   String
+  targetDate String
+  progress   Int      @default(0)
+  status     String   @default("IN_PROGRESS")
+  createdAt  DateTime @default(now())
+}
+
+model Post {
+  id          Int      @id @default(autoincrement())
+  title       String
+  slug        String   @unique
+  content     String
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
