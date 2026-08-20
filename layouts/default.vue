@@ -23,8 +23,17 @@
           </NuxtLink>
         </nav>
 
-        <!-- Right Side CTA Action -->
+        <!-- Right Side CTA Actions (Admin Studio Link + Contact Button) -->
         <div class="hidden md:flex items-center gap-3">
+          <NuxtLink
+            to="/admin"
+            class="px-3.5 py-1.5 rounded-xl bg-[#0B1017] hover:bg-[#111722] border border-white/10 hover:border-sky-500/40 text-slate-300 hover:text-white font-bold text-xs transition flex items-center gap-1.5 shadow-xs"
+            title="Admin Studio Yönetim Paneli"
+          >
+            <span class="text-xs">🔒</span>
+            <span>Admin</span>
+          </NuxtLink>
+
           <NuxtLink
             to="/contact"
             class="px-4 py-2 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-black font-extrabold text-xs transition shadow-md shadow-sky-500/20 hover:shadow-sky-400/40 hover:scale-102 flex items-center gap-1.5"
@@ -34,8 +43,16 @@
           </NuxtLink>
         </div>
 
-        <!-- Mobile Controls (Hamburger Only - Zero Theme Toggle) -->
+        <!-- Mobile Controls (Hamburger) -->
         <div class="flex md:hidden items-center gap-2">
+          <NuxtLink
+            to="/admin"
+            class="p-2 rounded-xl bg-[#0B1017] border border-white/10 text-slate-300 hover:text-white text-xs"
+            title="Admin Giriş"
+          >
+            🔒
+          </NuxtLink>
+
           <button
             type="button"
             @click="isMobileMenuOpen = !isMobileMenuOpen"
@@ -64,9 +81,18 @@
           >
             {{ link.label }}
           </NuxtLink>
+
+          <NuxtLink
+            to="/admin"
+            @click="isMobileMenuOpen = false"
+            class="px-3.5 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 transition flex items-center justify-between border-t border-white/5 pt-3"
+          >
+            <span>Admin Studio</span>
+            <span>🔒</span>
+          </NuxtLink>
         </nav>
 
-        <div class="pt-3 border-t border-white/10">
+        <div class="pt-2 border-t border-white/10">
           <NuxtLink
             to="/contact"
             @click="isMobileMenuOpen = false"
@@ -124,8 +150,16 @@
 
         <div class="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
           <p>© {{ new Date().getFullYear() }} {{ config.brand.name }} • Tüm Hakları Saklıdır.</p>
-          <div class="flex items-center gap-2 font-mono text-sky-400/80">
-            <span>{{ config.brand.subTagline }}</span>
+          <div class="flex items-center gap-4">
+            <span class="font-mono text-sky-400/80">{{ config.brand.subTagline }}</span>
+            <span class="text-slate-800">•</span>
+            <NuxtLink
+              to="/admin"
+              class="text-slate-500 hover:text-sky-400 transition flex items-center gap-1 font-mono text-[11px]"
+            >
+              <span>🔒</span>
+              <span>Yönetim Girişi</span>
+            </NuxtLink>
           </div>
         </div>
       </div>
