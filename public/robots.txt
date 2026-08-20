@@ -1,0 +1,18 @@
+# robots.txt for MECNUNUM
+User-agent: *
+Allow: /
+Allow: /about
+Allow: /technologies
+Allow: /blog
+Allow: /news
+Allow: /contact
+Allow: /sitemap.xml
+
+# Disallow private and administration areas
+Disallow: /admin
+Disallow: /admin/
+Disallow: /Admin
+Disallow: /Admin/
+Disallow: /api/
+
+Sitemap: https://mecnunum.dev/sitemap.xml

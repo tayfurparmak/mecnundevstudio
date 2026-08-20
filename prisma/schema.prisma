@@ -6,21 +6,89 @@ generator client {
   provider = "prisma-client-js"
 }
 
+enum TaskCategory {
+  AI
+  ENGLISH
+  WEB
+  PYTHON
+  OTHER
+}
+
+enum TaskStatus {
+  TODO
+  IN_PROGRESS
+  DONE
+}
+
 model Task {
-  id        Int      @id @default(autoincrement())
-  title     String
-  category  String
-  status    String   @default("TODO")
-  order     Int      @default(0)
-  createdAt DateTime @default(now())
+  id               Int            @id @default(autoincrement())
+  title            String
+  description      String?
+  category         TaskCategory   @default(WEB)
+  technology       String?
+  topic            String?
+  priority         String         @default("MEDIUM")
+  estimatedMinutes Int            @default(30)
+  actualMinutes    Int            @default(0)
+  status           TaskStatus     @default(TODO)
+  order            Int            @default(0)
+  completedAt      DateTime?
+  goalId           Int?
+  goal             Goal?          @relation(fields: [goalId], references: [id], onDelete: SetNull)
+  checklists       ChecklistItem[]
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+}
+
+model Topic {
+  id         Int            @id @default(autoincrement())
+  title      String
+  technology String
+  status     String         @default("TODO")
+  order      Int            @default(0)
+  goalId     Int?
+  goal       Goal?          @relation(fields: [goalId], references: [id], onDelete: SetNull)
+  checklists ChecklistItem[]
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+}
+
+model ChecklistItem {
+  id          Int      @id @default(autoincrement())
+  title       String
+  isCompleted Boolean  @default(false)
+  topicId     Int?
+  topic       Topic?   @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  taskId      Int?
+  task        Task?    @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+}
+
+model Goal {
+  id               Int       @id @default(autoincrement())
+  title            String
+  description      String?
+  category         String
+  targetDate       String
+  progress         Int       @default(0)
+  status           String    @default("IN_PROGRESS")
+  targetMinutes    Int       @default(0)
+  completedMinutes Int       @default(0)
+  topics           Topic[]
+  tasks            Task[]
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
 }
 
 model DailyLog {
-  id          Int      @id @default(autoincrement())
-  createdAt   DateTime @default(now())
-  todoTask    String
-  isCompleted Boolean  @default(false)
-  learningLog String?
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  todoTask     String
+  isCompleted  Boolean  @default(false)
+  learningLog  String?
+  notLearned   String?
+  planTomorrow String?
+  technology   String?
 }
 
 model SkillTracker {
@@ -30,14 +98,53 @@ model SkillTracker {
   updatedAt  DateTime @updatedAt
 }
 
-model Goal {
+model LearningActivity {
+  id              Int      @id @default(autoincrement())
+  date            String
+  technology      String
+  topic           String?
+  durationMinutes Int
+  note            String?
+  createdAt       DateTime @default(now())
+}
+
+model DailyTarget {
+  id             Int      @id @default(autoincrement())
+  date           String   @unique
+  plannedMinutes Int      @default(120)
+  actualMinutes  Int      @default(0)
+  notes          String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model VocabularyWord {
+  id             Int       @id @default(autoincrement())
+  word           String    @unique
+  meaning        String
+  example        String?
+  phonetic       String?
+  level          String    @default("B1")
+  topic          String?
+  reviewCount    Int       @default(0)
+  nextReviewDate DateTime  @default(now())
+  lastReviewedAt DateTime?
+  intervalDays   Int       @default(1)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model LearningNote {
   id         Int      @id @default(autoincrement())
   title      String
-  category   String
-  targetDate String
-  progress   Int      @default(0)
-  status     String   @default("IN_PROGRESS")
+  technology String
+  topic      String?
+  content    String
+  imageUrl   String?
+  status     String   @default("PRIVATE")
+  postId     Int?
   createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
 
 model Post {
