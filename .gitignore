@@ -28,3 +28,6 @@ logs
 
 /app/generated/prisma
 
+
+.vercel
+.env*
