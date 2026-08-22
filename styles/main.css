@@ -2,18 +2,19 @@
 
 @layer base {
   :root, html, body {
-    --bg-void: #05070a;
-    --bg-neural: #080b10;
-    --bg-surface: #0b1017;
-    --bg-surface-elevated: #0e141e;
+    --bg-void: #050508;
+    --bg-neural: #08080f;
+    --bg-surface: #0e0e16;
+    --bg-surface-elevated: #141420;
     --border-neural: rgba(255, 255, 255, 0.08);
-    --border-accent: rgba(56, 189, 248, 0.25);
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --accent-cyan: #38bdf8;
-    --accent-blue: #2563eb;
-    --accent-glow: rgba(56, 189, 248, 0.35);
+    --border-cyan: rgba(0, 242, 254, 0.35);
+    --border-violet: rgba(138, 43, 226, 0.35);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --neon-cyan: #00f2fe;
+    --cyber-violet: #8a2be2;
+    --accent-glow: rgba(0, 242, 254, 0.25);
 
     background-color: var(--bg-void);
     color: var(--text-primary);
@@ -24,31 +25,70 @@
   }
 }
 
-/* Neural UI Utilities */
-.neural-glow-cyan {
-  box-shadow: 0 0 25px -4px rgba(56, 189, 248, 0.35), 0 0 10px -2px rgba(37, 99, 235, 0.25);
+/* Carbon Fiber & Scanline Patterns */
+.bg-cyber-grid {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
-.neural-glow-sm {
-  box-shadow: 0 0 14px -2px rgba(56, 189, 248, 0.25);
+.bg-scanlines {
+  background: linear-gradient(rgba(18, 16, 23, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 4px, 6px 100%;
 }
 
-.neural-text-glow {
-  text-shadow: 0 0 16px rgba(56, 189, 248, 0.55);
+.cyber-radial-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(0, 242, 254, 0.15), rgba(138, 43, 226, 0.05) 40%, transparent 70%);
 }
 
-.glass-neural {
-  background: rgba(11, 16, 23, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+.neon-glow-cyan {
+  box-shadow: 0 0 35px -5px rgba(0, 242, 254, 0.4), 0 0 15px -3px rgba(138, 43, 226, 0.3);
 }
 
-.card-hover-lift {
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+.neon-glow-sm {
+  box-shadow: 0 0 18px -2px rgba(0, 242, 254, 0.3);
 }
 
-.card-hover-lift:hover {
+.glass-cyber {
+  background: rgba(14, 14, 22, 0.85);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.card-hover-cyber {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover-cyber:hover {
   transform: translateY(-3px);
+  border-color: rgba(0, 242, 254, 0.5);
+  box-shadow: 0 0 35px -5px rgba(0, 242, 254, 0.25);
+}
+
+/* Infinite Marquee Animation for Financial Ticker */
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {

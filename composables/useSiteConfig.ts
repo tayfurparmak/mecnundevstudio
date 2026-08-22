@@ -9,12 +9,12 @@ export const useSiteConfig = () => {
       description: 'Yapay zeka, modern full-stack web mimarileri (Nuxt, Vue, TypeScript, Python) ve bilgisayar mühendisliği vizyonuyla inşa edilen kişisel teknoloji ve öğrenme merkezi.',
     },
     navLinks: [
-      { label: 'Home', to: '/' },
-      { label: 'About', to: '/about' },
-      { label: 'Technologies', to: '/technologies' },
-      { label: 'Blog', to: '/blog' },
-      { label: 'News', to: '/news' },
-      { label: 'Contact', to: '/contact' },
+      { label: 'nav.home', to: '/' },
+      { label: 'nav.about', to: '/about' },
+      { label: 'nav.technologies', to: '/technologies' },
+      { label: 'nav.blog', to: '/blog' },
+      { label: 'nav.news', to: '/news' },
+      { label: 'nav.contact', to: '/contact' },
     ],
     socialLinks: [
       { name: 'GitHub', icon: '💻', url: 'https://github.com' },

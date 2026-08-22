@@ -1,0 +1,82 @@
+{
+  "nav": {
+    "home": "Schaufenster",
+    "about": "Über mich",
+    "technologies": "Technologien",
+    "blog": "Artikel",
+    "news": "KI Nachrichten",
+    "contact": "Kontakt",
+    "admin": "Admin",
+    "publicSite": "Zurück zur Seite"
+  },
+  "hero": {
+    "badge": "KÜNSTLICHE INTELLIGENZ × NEURONALE ARCHITEKTUR",
+    "title": "Mecnun Dev Studio",
+    "tagline": "Modernes Full-Stack Engineering & KI Labor",
+    "description": "Persönliches Portfolio und autonomes Managementzentrum, erstellt mit Nuxt 3, TypeScript, PostgreSQL und KI-Modellen.",
+    "explore": "Meine Lernreise",
+    "readBlog": "Artikel entdecken",
+    "contactBtn": "Kontakt aufnehmen"
+  },
+  "skills": {
+    "title": "Aktuell im Fokus ⚡",
+    "subtitle": "Lebendiges Neuronales Wachstum",
+    "viewAll": "Alle Technologien ansehen",
+    "liveTracker": "Live Verfolgung",
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "languages": "Sprachen",
+    "ai": "Künstliche Intelligenz",
+    "english": "Englisch",
+    "fullstack": "Full-Stack"
+  },
+  "blog": {
+    "title": "Kürzlich veröffentlichte Fachartikel 📖",
+    "subtitle": "Dokumentation & Archiv",
+    "readAll": "Alle Artikel lesen",
+    "technicalNote": "Technischer Hinweis",
+    "readArticle": "Artikel lesen"
+  },
+  "goals": {
+    "title": "Aktive Ziele & Journal-Stream 🎯",
+    "subtitle": "Strategische Vision",
+    "activeGoals": "Aktive Ziele",
+    "dailyLogs": "Täglicher Journal-Stream",
+    "targetDate": "Zieldatum"
+  },
+  "admin": {
+    "osTitle": "LEARNING OS",
+    "studio": "Admin Studio",
+    "eod": "Tagesabschluss",
+    "dashboard": "Wo stehe ich heute?",
+    "goalsTab": "Ziele & Themen",
+    "kanbanTab": "Learning Kanban",
+    "mindmapTab": "Mind Map Canvas",
+    "vaultTab": "Learning Vault",
+    "englishTab": "Englisch & Review",
+    "analyticsTab": "Leistungsanalyse",
+    "journalTab": "Lernjournal",
+    "cmsTab": "CMS & Blog",
+    "trackerTab": "Skill Tracker",
+    "logout": "Abmelden",
+    "refresh": "Aktualisieren",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "add": "Hinzufügen",
+    "secureSession": "Sichere Sitzung"
+  },
+  "kanban": {
+    "title": "Learning Kanban Board 📋",
+    "subtitle": "Lernboard mit Themen, Checklisten und Zeiterfassung.",
+    "todo": "Zu erledigen",
+    "inProgress": "In Bearbeitung",
+    "done": "Erledigt",
+    "addTask": "+ Neue Aufgabe / Thema hinzufügen"
+  },
+  "footer": {
+    "rights": "Alle Rechte vorbehalten.",
+    "adminLogin": "Admin Login"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "nav": {
+    "home": "Vitrin",
+    "about": "Hakkımda",
+    "technologies": "Teknolojiler",
+    "blog": "Yazılar",
+    "news": "AI Haberleri",
+    "contact": "İletişim",
+    "admin": "Admin",
+    "publicSite": "Siteye Dön"
+  },
+  "hero": {
+    "badge": "YAPAY ZEKA × NÖRAL MİMARİ",
+    "title": "Mecnun Dev Studio",
+    "tagline": "Modern Full-Stack Mühendislik & Yapay Zeka Laboratuvarı",
+    "description": "Nuxt 3, TypeScript, PostgreSQL ve yapay zeka modelleriyle inşa edilen kişisel portfolyo ve otonom yönetim merkezi.",
+    "explore": "Öğrenme Yolculuğum",
+    "readBlog": "Yazıları Keşfet",
+    "contactBtn": "İletişime Geç"
+  },
+  "skills": {
+    "title": "Aktif Olarak Öğrendiklerim ⚡",
+    "subtitle": "Canlı Nöronik Gelişim",
+    "viewAll": "Tüm Teknolojileri İncele",
+    "liveTracker": "Canlı Takip",
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "languages": "Diller",
+    "ai": "Yapay Zeka",
+    "english": "İngilizce",
+    "fullstack": "Full-Stack"
+  },
+  "blog": {
+    "title": "Son Yayınlanan Teknik Yazılar 📖",
+    "subtitle": "Dokümantasyon & Arşiv",
+    "readAll": "Tüm Makaleleri Oku",
+    "technicalNote": "Teknik Not",
+    "readArticle": "Yazıyı İncele"
+  },
+  "goals": {
+    "title": "Aktif Hedefler & Jurnal Akışı 🎯",
+    "subtitle": "Stratejik Vizyon",
+    "activeGoals": "Aktif Hedefler (Goals)",
+    "dailyLogs": "Günlük Jurnal Akışı",
+    "targetDate": "Hedef Tarih"
+  },
+  "admin": {
+    "osTitle": "LEARNING OS",
+    "studio": "Admin Studio",
+    "eod": "Gün Sonu Kapanışı",
+    "dashboard": "Bugün Neredeyim?",
+    "goalsTab": "Hedefler & Konular",
+    "kanbanTab": "Learning Kanban",
+    "mindmapTab": "Mind Map Canvas",
+    "vaultTab": "Learning Vault",
+    "englishTab": "English & Review",
+    "analyticsTab": "Performans Analizi",
+    "journalTab": "Öğrenme Jurnali",
+    "cmsTab": "CMS & Blog",
+    "trackerTab": "Skill Tracker",
+    "logout": "Çıkış Yap",
+    "refresh": "Yenile",
+    "save": "Kaydet",
+    "cancel": "Vazgeç",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "add": "Ekle",
+    "secureSession": "Secure Session"
+  },
+  "kanban": {
+    "title": "Learning Kanban Board 📋",
+    "subtitle": "Konu, alt checklist maddeleri ve süre takipli öğrenme panosu.",
+    "todo": "Yapılacaklar",
+    "inProgress": "Devam Edenler",
+    "done": "Tamamlananlar",
+    "addTask": "+ Yeni Görev / Konu Ekle"
+  },
+  "footer": {
+    "rights": "Tüm Hakları Saklıdır.",
+    "adminLogin": "Yönetim Girişi"
+  }
+}

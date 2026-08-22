@@ -132,6 +132,42 @@ watchEffect(() => {
       description: plainExcerpt || post.value.title,
       ogTitle: `${post.value.title} • ${config.brand.name}`,
       ogDescription: plainExcerpt,
+      ogType: 'article',
+      ogImage: 'https://mecnunum.dev/og-image.png',
+      twitterCard: 'summary_large_image',
+    })
+
+    useHead({
+      link: [
+        { rel: 'canonical', href: `https://mecnunum.dev/blog/${post.value.slug}` }
+      ],
+      script: [
+        {
+          type: 'application/ld+json' as any,
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "headline": post.value.title,
+            "image": "https://mecnunum.dev/og-image.png",
+            "author": {
+              "@type": "Person",
+              "name": "Tayfur",
+              "url": "https://mecnunum.dev"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "MECNUNUM",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://mecnunum.dev/favicon.ico"
+              }
+            },
+            "datePublished": new Date(post.value.createdAt).toISOString(),
+            "dateModified": new Date(post.value.createdAt).toISOString(),
+            "description": plainExcerpt
+          })
+        }
+      ]
     })
   }
 })

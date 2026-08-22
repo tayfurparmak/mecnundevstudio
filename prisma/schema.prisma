@@ -155,3 +155,30 @@ model Post {
   isPublished Boolean  @default(false)
   createdAt   DateTime @default(now())
 }
+
+model Note {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  tags      String   @default("General")
+  isTil     Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model MindMapNode {
+  id          Int      @id @default(autoincrement())
+  label       String
+  category    String   @default("Core")
+  x           Float    @default(100)
+  y           Float    @default(100)
+  color       String   @default("#00f2fe")
+  description String?
+  createdAt   DateTime @default(now())
+}
+
+model MindMapEdge {
+  id     Int @id @default(autoincrement())
+  fromId Int
+  toId   Int
+}

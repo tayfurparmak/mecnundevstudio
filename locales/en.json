@@ -1,0 +1,82 @@
+{
+  "nav": {
+    "home": "Showcase",
+    "about": "About",
+    "technologies": "Technologies",
+    "blog": "Articles",
+    "news": "AI News",
+    "contact": "Contact",
+    "admin": "Admin",
+    "publicSite": "Back to Site"
+  },
+  "hero": {
+    "badge": "ARTIFICIAL INTELLIGENCE × NEURAL ARCHITECTURE",
+    "title": "Mecnun Dev Studio",
+    "tagline": "Modern Full-Stack Engineering & AI Laboratory",
+    "description": "Personal portfolio and autonomous management center built with Nuxt 3, TypeScript, PostgreSQL, and AI models.",
+    "explore": "My Learning Journey",
+    "readBlog": "Explore Articles",
+    "contactBtn": "Get in Touch"
+  },
+  "skills": {
+    "title": "Actively Learning ⚡",
+    "subtitle": "Live Neuronal Growth",
+    "viewAll": "View All Technologies",
+    "liveTracker": "Live Tracking",
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "languages": "Languages",
+    "ai": "Artificial Intelligence",
+    "english": "English",
+    "fullstack": "Full-Stack"
+  },
+  "blog": {
+    "title": "Recently Published Technical Articles 📖",
+    "subtitle": "Documentation & Archive",
+    "readAll": "Read All Articles",
+    "technicalNote": "Tech Note",
+    "readArticle": "Read Article"
+  },
+  "goals": {
+    "title": "Active Goals & Journal Stream 🎯",
+    "subtitle": "Strategic Vision",
+    "activeGoals": "Active Goals",
+    "dailyLogs": "Daily Journal Stream",
+    "targetDate": "Target Date"
+  },
+  "admin": {
+    "osTitle": "LEARNING OS",
+    "studio": "Admin Studio",
+    "eod": "End of Day Review",
+    "dashboard": "Where am I Today?",
+    "goalsTab": "Goals & Topics",
+    "kanbanTab": "Learning Kanban",
+    "mindmapTab": "Mind Map Canvas",
+    "vaultTab": "Learning Vault",
+    "englishTab": "English & Review",
+    "analyticsTab": "Performance Analytics",
+    "journalTab": "Learning Journal",
+    "cmsTab": "CMS & Blog",
+    "trackerTab": "Skill Tracker",
+    "logout": "Logout",
+    "refresh": "Refresh",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "secureSession": "Secure Session"
+  },
+  "kanban": {
+    "title": "Learning Kanban Board 📋",
+    "subtitle": "Learning board with topic, checklist items, and time tracking.",
+    "todo": "To Do",
+    "inProgress": "In Progress",
+    "done": "Done",
+    "addTask": "+ Add New Task / Topic"
+  },
+  "footer": {
+    "rights": "All Rights Reserved.",
+    "adminLogin": "Admin Login"
+  }
+}

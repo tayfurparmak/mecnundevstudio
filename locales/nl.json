@@ -1,0 +1,82 @@
+{
+  "nav": {
+    "home": "Etalage",
+    "about": "Over mij",
+    "technologies": "Technologieën",
+    "blog": "Artikelen",
+    "news": "AI Nieuws",
+    "contact": "Contact",
+    "admin": "Admin",
+    "publicSite": "Terug naar site"
+  },
+  "hero": {
+    "badge": "KUNSTMATIGE INTELLIGENTIE × NEURALE ARCHITECTUUR",
+    "title": "Mecnun Dev Studio",
+    "tagline": "Modern Full-Stack Engineering & AI Laboratorium",
+    "description": "Persoonlijk portfolio en autonoom beheercentrum, gebouwd met Nuxt 3, TypeScript, PostgreSQL en AI-modellen.",
+    "explore": "Mijn Leerproces",
+    "readBlog": "Artikelen Ontdekken",
+    "contactBtn": "Neem Contact Op"
+  },
+  "skills": {
+    "title": "Actief Aan Het Leren ⚡",
+    "subtitle": "Levende Neurale Groei",
+    "viewAll": "Bekijk Alle Technologieën",
+    "liveTracker": "Live Volgen",
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "languages": "Talen",
+    "ai": "Kunstmatige Intelligentie",
+    "english": "Engels",
+    "fullstack": "Full-Stack"
+  },
+  "blog": {
+    "title": "Recent Gepubliceerde Technische Artikelen 📖",
+    "subtitle": "Documentatie & Archief",
+    "readAll": "Lees Alle Artikelen",
+    "technicalNote": "Technische Notitie",
+    "readArticle": "Lees Artikel"
+  },
+  "goals": {
+    "title": "Actieve Doelen & Journaalstroom 🎯",
+    "subtitle": "Strategische Visie",
+    "activeGoals": "Actieve Doelen",
+    "dailyLogs": "Dagelijkse Journaalstroom",
+    "targetDate": "Doeldatum"
+  },
+  "admin": {
+    "osTitle": "LEARNING OS",
+    "studio": "Admin Studio",
+    "eod": "Einde van de Dag Beoordeling",
+    "dashboard": "Waar sta ik vandaag?",
+    "goalsTab": "Doelen & Onderwerpen",
+    "kanbanTab": "Learning Kanban",
+    "mindmapTab": "Mind Map Canvas",
+    "vaultTab": "Learning Vault",
+    "englishTab": "Engels & Review",
+    "analyticsTab": "Prestatie Analyse",
+    "journalTab": "Leerjournaal",
+    "cmsTab": "CMS & Blog",
+    "trackerTab": "Skill Tracker",
+    "logout": "Uitloggen",
+    "refresh": "Vernieuwen",
+    "save": "Opslaan",
+    "cancel": "Annuleren",
+    "delete": "Verwijderen",
+    "edit": "Bewerken",
+    "add": "Toevoegen",
+    "secureSession": "Veilige Sessie"
+  },
+  "kanban": {
+    "title": "Learning Kanban Board 📋",
+    "subtitle": "Leerbord met onderwerpen, checklist-items en tijdregistratie.",
+    "todo": "Te Doen",
+    "inProgress": "Mee Bezig",
+    "done": "Gedaan",
+    "addTask": "+ Nieuwe Taak / Onderwerp Toevoegen"
+  },
+  "footer": {
+    "rights": "Alle Rechten Voorbehouden.",
+    "adminLogin": "Admin Login"
+  }
+}

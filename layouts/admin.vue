@@ -1,88 +1,92 @@
 <template>
-  <div class="min-h-screen flex bg-slate-950 text-slate-100 font-sans selection:bg-indigo-500 selection:text-white">
-    <!-- Global Toast, Modal & EOD Containers -->
+  <div class="min-h-screen flex bg-[#09090b] text-zinc-100 font-sans selection:bg-sky-500 selection:text-black bg-dot-grid">
+    <!-- Global Toast, Modal, EOD & AI Mentor Containers -->
     <ToastContainer />
     <ConfirmModal />
     <EodReviewModal v-model="showEodModal" />
+    <AICoachDrawer />
 
     <!-- Admin Sidebar -->
-    <aside class="w-64 border-r border-slate-800/80 bg-slate-900/50 backdrop-blur-xl p-5 flex flex-col justify-between shrink-0 select-none sticky top-0 h-screen overflow-y-auto">
-      <div class="space-y-5">
+    <aside class="w-64 border-r border-white/10 bg-[#0c0c10]/90 backdrop-blur-2xl p-5 flex flex-col justify-between shrink-0 select-none sticky top-0 h-screen overflow-y-auto">
+      <div class="space-y-6">
         <!-- Logo / Studio Header -->
-        <div class="flex items-center justify-between pb-3 border-b border-slate-800/60">
+        <div class="flex items-center justify-between pb-4 border-b border-white/10">
           <div>
-            <span class="text-[10px] font-extrabold text-indigo-400 uppercase tracking-widest block">LEARNING OS</span>
-            <h2 class="text-base font-extrabold text-white mt-0.5 tracking-tight flex items-center gap-1.5">
-              <span>Admin Studio</span>
-              <span class="text-xs animate-pulse">⚡</span>
+            <span class="text-[10px] font-bold text-sky-400 uppercase tracking-widest block font-mono">{{ t('admin.osTitle') }}</span>
+            <h2 class="text-base font-extrabold text-white mt-0.5 tracking-tight flex items-center gap-2">
+              <span>{{ t('admin.studio') }}</span>
+              <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
             </h2>
           </div>
-          <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800/80 font-mono font-bold">
-            v2.2
-          </span>
+          <LanguageSwitcher />
         </div>
 
         <!-- Quick EOD Action Button -->
         <button
           type="button"
           @click="showEodModal = true"
-          class="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-indigo-900/60 via-indigo-800/40 to-slate-900 border border-indigo-700/50 hover:border-indigo-500 text-indigo-200 hover:text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm group"
+          class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-sky-950/60 via-blue-950/40 to-[#121218] border border-sky-500/30 hover:border-sky-500 text-sky-200 hover:text-white text-xs font-bold transition active:scale-95 flex items-center justify-center gap-2 shadow-sm group"
         >
           <span class="group-hover:rotate-12 transition-transform">🌙</span>
-          <span>Gün Sonu Kapanışı</span>
+          <span>{{ t('admin.eod') }}</span>
         </button>
         
         <!-- Navigation Menu -->
-        <nav class="space-y-1 text-xs font-medium">
-          <!-- 1. Dashboard -->
+        <nav class="space-y-1.5 text-xs font-semibold">
           <NuxtLink 
             to="/admin" 
-            class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/60 transition group relative"
-            active-class="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white font-bold shadow-md shadow-indigo-600/20"
+            class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-zinc-400 hover:text-zinc-200 hover:bg-white/5 transition"
+            active-class="bg-gradient-to-r from-sky-500 to-blue-600 text-black !font-bold shadow-md shadow-sky-500/20"
           >
             <span class="text-sm">🧭</span>
-            <span>Bugün Neredeyim?</span>
+            <span>{{ t('admin.dashboard') }}</span>
           </NuxtLink>
 
-          <!-- 2. Goals & Technology Hierarchy -->
           <NuxtLink 
             to="/admin/goals" 
-            class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/60 transition"
-            active-class="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white font-bold shadow-md shadow-indigo-600/20"
+            class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-zinc-400 hover:text-zinc-200 hover:bg-white/5 transition"
+            active-class="bg-gradient-to-r from-sky-500 to-blue-600 text-black !font-bold shadow-md shadow-sky-500/20"
           >
             <span class="text-sm">🎯</span>
-            <span>Hedefler & Konular</span>
+            <span>{{ t('admin.goalsTab') }}</span>
           </NuxtLink>
 
-          <!-- 3. Learning Kanban -->
           <NuxtLink 
             to="/admin/board" 
-            class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/60 transition"
-            active-class="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white font-bold shadow-md shadow-indigo-600/20"
+            class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-zinc-400 hover:text-zinc-200 hover:bg-white/5 transition"
+            active-class="bg-gradient-to-r from-sky-500 to-blue-600 text-black !font-bold shadow-md shadow-sky-500/20"
           >
             <span class="text-sm">📋</span>
-            <span>Learning Kanban</span>
+            <span>{{ t('admin.kanbanTab') }}</span>
           </NuxtLink>
 
-          <!-- 4. Learning Vault -->
+          <!-- Mind Map Canvas -->
+          <NuxtLink 
+            to="/admin/mindmap" 
+            class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-zinc-400 hover:text-zinc-200 hover:bg-white/5 transition"
+            active-class="bg-gradient-to-r from-sky-500 to-blue-600 text-black !font-bold shadow-md shadow-sky-500/20"
+          >
+            <span class="text-sm">🧠</span>
+            <span>{{ t('admin.mindmapTab') }}</span>
+          </NuxtLink>
+
           <NuxtLink 
             to="/admin/vault" 
-            class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/60 transition"
-            active-class="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white font-bold shadow-md shadow-indigo-600/20"
+            class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-zinc-400 hover:text-zinc-200 hover:bg-white/5 transition"
+            active-class="bg-gradient-to-r from-sky-500 to-blue-600 text-black !font-bold shadow-md shadow-sky-500/20"
           >
             <span class="text-sm">🔒</span>
-            <span>Learning Vault</span>
+            <span>{{ t('admin.vaultTab') }}</span>
           </NuxtLink>
 
-          <!-- 5. English Learning & Review -->
           <NuxtLink 
             to="/admin/english" 
-            class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/60 transition"
-            active-class="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white font-bold shadow-md shadow-indigo-600/20"
+            class="flex items-center justify-between px-3 py-2.5 rounded-xl text-zinc-400 hover:text-zinc-200 hover:bg-white/5 transition"
+            active-class="bg-gradient-to-r from-sky-500 to-blue-600 text-black !font-bold shadow-md shadow-sky-500/20"
           >
             <div class="flex items-center gap-2.5">
               <span class="text-sm">🇬🇧</span>
-              <span>English & Review</span>
+              <span>{{ t('admin.englishTab') }}</span>
             </div>
             <span 
               v-if="dueWordsCount > 0" 
@@ -92,59 +96,65 @@
             </span>
           </NuxtLink>
 
-          <!-- 6. Analytics & Performance -->
           <NuxtLink 
             to="/admin/analytics" 
-            class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/60 transition"
-            active-class="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white font-bold shadow-md shadow-indigo-600/20"
+            class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-zinc-400 hover:text-zinc-200 hover:bg-white/5 transition"
+            active-class="bg-gradient-to-r from-sky-500 to-blue-600 text-black !font-bold shadow-md shadow-sky-500/20"
           >
             <span class="text-sm">📈</span>
-            <span>Performans Analizi</span>
+            <span>{{ t('admin.analyticsTab') }}</span>
           </NuxtLink>
 
-          <!-- 7. Daily Journal -->
           <NuxtLink 
             to="/admin/daily-log" 
-            class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/60 transition"
-            active-class="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white font-bold shadow-md shadow-indigo-600/20"
+            class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-zinc-400 hover:text-zinc-200 hover:bg-white/5 transition"
+            active-class="bg-gradient-to-r from-sky-500 to-blue-600 text-black !font-bold shadow-md shadow-sky-500/20"
           >
             <span class="text-sm">📔</span>
-            <span>Öğrenme Jurnali</span>
+            <span>{{ t('admin.journalTab') }}</span>
           </NuxtLink>
 
-          <!-- 8. CMS Blog Manager -->
           <NuxtLink 
             to="/admin/cms" 
-            class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/60 transition"
-            active-class="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white font-bold shadow-md shadow-indigo-600/20"
+            class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-zinc-400 hover:text-zinc-200 hover:bg-white/5 transition"
+            active-class="bg-gradient-to-r from-sky-500 to-blue-600 text-black !font-bold shadow-md shadow-sky-500/20"
           >
             <span class="text-sm">📝</span>
-            <span>CMS & Blog</span>
+            <span>{{ t('admin.cmsTab') }}</span>
+          </NuxtLink>
+
+          <NuxtLink 
+            to="/admin/learning-tracker" 
+            class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-zinc-400 hover:text-zinc-200 hover:bg-white/5 transition"
+            active-class="bg-gradient-to-r from-sky-500 to-blue-600 text-black !font-bold shadow-md shadow-sky-500/20"
+          >
+            <span class="text-sm">🚀</span>
+            <span>{{ t('admin.trackerTab') }}</span>
           </NuxtLink>
         </nav>
       </div>
 
       <!-- Sidebar Footer -->
-      <div class="pt-4 border-t border-slate-800 space-y-3 text-xs">
+      <div class="pt-4 border-t border-white/10 space-y-3 text-xs">
         <div class="flex items-center justify-between">
-          <NuxtLink to="/" class="text-[11px] text-slate-500 hover:text-slate-300 transition inline-flex items-center gap-1">
+          <NuxtLink to="/" class="text-[11px] text-zinc-500 hover:text-zinc-300 transition inline-flex items-center gap-1">
             <span>←</span>
-            <span>Public Site</span>
+            <span>{{ t('nav.publicSite') }}</span>
           </NuxtLink>
-          <span class="text-[10px] text-slate-600 font-mono">Private Session</span>
+          <span class="text-[10px] text-zinc-600 font-mono">{{ t('admin.secureSession') }}</span>
         </div>
         <button 
           @click="handleLogout"
-          class="w-full text-left text-rose-400 hover:text-rose-300 hover:bg-rose-950/40 px-2.5 py-1.5 rounded-xl transition flex items-center justify-between font-medium"
+          class="w-full text-left text-rose-400 hover:text-rose-300 hover:bg-rose-950/40 px-3 py-2 rounded-xl transition flex items-center justify-between font-semibold active:scale-95"
         >
-          <span>Çıkış Yap</span>
+          <span>{{ t('admin.logout') }}</span>
           <span>🚪</span>
         </button>
       </div>
     </aside>
 
     <!-- Main Content Area -->
-    <main class="flex-1 p-6 sm:p-8 overflow-y-auto max-w-6xl">
+    <main class="flex-1 p-6 sm:p-10 overflow-y-auto max-w-7xl mx-auto">
       <slot />
     </main>
   </div>
@@ -154,8 +164,12 @@
 import ToastContainer from '~/components/Common/ToastContainer.vue'
 import ConfirmModal from '~/components/Common/ConfirmModal.vue'
 import EodReviewModal from '~/components/Common/EodReviewModal.vue'
+import LanguageSwitcher from '~/components/Common/LanguageSwitcher.vue'
+import AICoachDrawer from '~/components/Common/AICoachDrawer.vue'
+import { useI18n } from '~/composables/useI18n'
 
 const { logout } = useAuth()
+const { t } = useI18n()
 const dueWordsCount = ref(0)
 const showEodModal = ref(false)
 
